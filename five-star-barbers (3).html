@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Five Star Barbers — Katowice</title>
+<meta name="description" content="Five Star Barbers, ul. Zadole 15, Katowice. Ponad 1800 pięciogwiazdkowych opinii, jeden barber, jeden fotel. Rezerwacja online przez Booksy.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0c0b0a;
+    --charcoal:#151210;
+    --charcoal-2:#1b1815;
+    --ivory:#ece6d9;
+    --ivory-dim:#b9b2a2;
+    --brass:#a6813f;
+    --brass-light:#cfae6f;
+    --wine:#4e2029;
+    --line:rgba(236,230,217,0.14);
+    --line-strong:rgba(236,230,217,0.24);
+    --serif:'Fraunces', Georgia, serif;
+    --sans:'Instrument Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+  }
+
+  body{
+    background:var(--ink);
+    color:var(--ivory);
+    font-family:var(--sans);
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:999;
+    opacity:0.035;
+    background-image:radial-gradient(circle, #fff 0.6px, transparent 0.6px);
+    background-size:3px 3px;
+    mix-blend-mode:overlay;
+  }
+
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  ul{list-style:none;}
+  button{font-family:inherit; cursor:pointer; border:none; background:none; color:inherit;}
+
+  .wrap{
+    max-width:1240px;
+    margin:0 auto;
+    padding:0 48px;
+  }
+
+  @media (max-width:768px){
+    .wrap{padding:0 24px;}
+  }
+
+  h1,h2,h3,h4{
+    font-family:var(--serif);
+    font-weight:500;
+    letter-spacing:-0.01em;
+    line-height:1.08;
+  }
+
+  .eyebrow-index{
+    font-family:var(--sans);
+    font-size:0.8rem;
+    color:var(--brass);
+    letter-spacing:0.06em;
+    font-variant-numeric:tabular-nums;
+  }
+
+  /* ============ NAV ============ */
+  header{
+    position:fixed;
+    top:0; left:0; right:0;
+    z-index:500;
+    padding:26px 0;
+    transition:padding 0.35s ease, background 0.35s ease, border-color 0.35s ease;
+    border-bottom:1px solid transparent;
+  }
+  header.scrolled{
+    padding:14px 0;
+    background:rgba(12,11,10,0.86);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  header .wrap{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-family:var(--serif);
+    font-size:1.05rem;
+    letter-spacing:0.02em;
+  }
+  .logo .mark{
+    width:38px; height:38px;
+    border-radius:50%;
+    border:1px solid var(--brass);
+    display:flex;align-items:center;justify-content:center;
+    font-size:1rem;
+    font-family:var(--serif);
+    font-style:italic;
+    color:var(--brass-light);
+    flex-shrink:0;
+  }
+  .logo .city{
+    display:block;
+    font-family:var(--sans);
+    font-size:0.68rem;
+    color:var(--ivory-dim);
+    letter-spacing:0.14em;
+    margin-top:2px;
+  }
+  nav.primary-nav{
+    display:flex;
+    align-items:center;
+    gap:38px;
+  }
+  nav.primary-nav a{
+    font-size:0.92rem;
+    color:var(--ivory-dim);
+    position:relative;
+    padding-bottom:4px;
+    transition:color 0.25s ease;
+  }
+  nav.primary-nav a::after{
+    content:"";
+    position:absolute; left:0; right:100%; bottom:0;
+    height:1px; background:var(--brass-light);
+    transition:right 0.3s ease;
+  }
+  nav.primary-nav a:hover{color:var(--ivory);}
+  nav.primary-nav a:hover::after{right:0;}
+
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:13px 26px;
+    font-size:0.88rem;
+    letter-spacing:0.02em;
+    border-radius:2px;
+    transition:all 0.28s ease;
+    white-space:nowrap;
+  }
+  .btn-primary{
+    background:var(--brass);
+    color:var(--ink);
+    border:1px solid var(--brass);
+  }
+  .btn-primary:hover{background:var(--brass-light); border-color:var(--brass-light); transform:translateY(-1px);}
+  .btn-outline{
+    border:1px solid var(--line-strong);
+    color:var(--ivory);
+  }
+  .btn-outline:hover{border-color:var(--brass-light); color:var(--brass-light);}
+
+  .btn-phone{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:11px 20px 11px 16px;
+    font-size:0.88rem;
+    border:1px solid var(--line-strong);
+    border-radius:999px;
+    color:var(--ivory);
+    transition:all 0.28s ease;
+    white-space:nowrap;
+  }
+  .btn-phone svg{
+    width:16px; height:16px;
+    flex-shrink:0;
+  }
+  .btn-phone circle{fill:var(--brass); transition:fill 0.28s ease;}
+  .btn-phone path{stroke:var(--ink);}
+  .btn-phone:hover{border-color:var(--brass-light); background:rgba(166,129,63,0.08);}
+  .btn-phone:hover circle{fill:var(--brass-light);}
+
+  .icon-call{
+    width:38px; height:38px;
+    border-radius:50%;
+    border:1px solid var(--line-strong);
+    display:flex; align-items:center; justify-content:center;
+    transition:border-color 0.25s ease, background 0.25s ease;
+  }
+  .icon-call:hover{border-color:var(--brass-light); background:rgba(166,129,63,0.08);}
+  .icon-call svg{width:16px; height:16px;}
+  .icon-call circle{fill:var(--brass);}
+  .icon-call path{stroke:var(--ink);}
+
+  .hamburger{
+    display:none;
+    flex-direction:column;
+    gap:5px;
+    width:28px;
+  }
+  .hamburger span{
+    height:1px; background:var(--ivory); width:100%;
+    transition:all 0.3s ease;
+  }
+
+  .mobile-menu{
+    position:fixed; inset:0;
+    background:var(--ink);
+    z-index:600;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:flex-start;
+    padding:0 32px;
+    gap:28px;
+    transform:translateX(100%);
+    transition:transform 0.4s ease;
+  }
+  .mobile-menu.open{transform:translateX(0);}
+  .mobile-menu a{font-family:var(--serif); font-size:2rem;}
+  .mobile-menu .close-btn{
+    position:absolute; top:26px; right:24px;
+    font-size:1.6rem; color:var(--ivory-dim);
+  }
+
+  @media (max-width:900px){
+    nav.primary-nav{display:none;}
+    .hamburger{display:flex;}
+  }
+
+  /* ============ HERO ============ */
+  .hero{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    position:relative;
+    padding-top:120px;
+    padding-bottom:80px;
+    background:
+      radial-gradient(ellipse 900px 600px at 82% 18%, rgba(166,129,63,0.10), transparent 60%),
+      var(--ink);
+  }
+
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.4fr 1fr;
+    gap:40px;
+    align-items:end;
+  }
+
+  .hero h1{
+    font-size:clamp(2.6rem, 6.4vw, 5.4rem);
+    color:var(--ivory);
+  }
+  .hero h1 .line{
+    display:block;
+    overflow:hidden;
+  }
+  .hero h1 .line span{
+    display:block;
+    opacity:0;
+    transform:translateY(100%);
+    animation:lineUp 0.9s cubic-bezier(.22,1,.36,1) forwards;
+  }
+  .hero h1 .line:nth-child(1) span{animation-delay:0.15s;}
+  .hero h1 .line:nth-child(2) span{animation-delay:0.32s;}
+  .hero h1 .line:nth-child(3) span{animation-delay:0.49s;}
+  @keyframes lineUp{
+    to{opacity:1; transform:translateY(0);}
+  }
+  .hero h1 em{
+    font-style:italic;
+    color:var(--brass-light);
+    font-weight:400;
+  }
+
+  .hero-sub{
+    max-width:420px;
+    margin-top:28px;
+    color:var(--ivory-dim);
+    font-size:1.03rem;
+    opacity:0;
+    animation:fadeIn 1s ease forwards;
+    animation-delay:0.8s;
+  }
+  @keyframes fadeIn{ to{opacity:1;} }
+
+  .hero-cta{
+    margin-top:38px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:16px;
+    opacity:0;
+    animation:fadeIn 1s ease forwards;
+    animation-delay:1s;
+  }
+
+  .hero-aside{
+    justify-self:end;
+    text-align:right;
+    opacity:0;
+    animation:fadeIn 1.2s ease forwards;
+    animation-delay:1.1s;
+  }
+  .hero-razor{
+    width:220px;
+    margin-left:auto;
+    opacity:0.85;
+  }
+  .hero-razor path{stroke:var(--brass-light);}
+
+  .hero-meta{
+    margin-top:22px;
+    font-size:0.8rem;
+    color:var(--ivory-dim);
+    line-height:1.9;
+  }
+  .hero-meta strong{color:var(--brass-light); font-weight:500;}
+
+  .scroll-cue{
+    position:absolute;
+    bottom:36px; left:48px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-size:0.76rem;
+    color:var(--ivory-dim);
+    letter-spacing:0.08em;
+  }
+  .scroll-cue .stick{
+    width:1px; height:38px;
+    background:linear-gradient(var(--brass-light), transparent);
+  }
+
+  @media (max-width:900px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-aside{justify-self:start; text-align:left; margin-top:40px;}
+    .hero-razor{margin-left:0;}
+    .scroll-cue{display:none;}
+  }
+
+  /* ============ SECTION SHELL ============ */
+  section{
+    padding:130px 0;
+    position:relative;
+  }
+  section.alt{background:var(--charcoal);}
+  .section-head{
+    display:grid;
+    grid-template-columns:120px 1fr;
+    gap:24px;
+    margin-bottom:64px;
+    align-items:start;
+  }
+  .section-head h2{
+    font-size:clamp(2rem, 4vw, 3.1rem);
+    color:var(--ivory);
+    max-width:640px;
+  }
+  .section-head .eyebrow-index{padding-top:10px;}
+  .section-lede{
+    grid-column:2;
+    max-width:560px;
+    color:var(--ivory-dim);
+    margin-top:18px;
+    font-size:1.02rem;
+  }
+  @media (max-width:700px){
+    .section-head{grid-template-columns:1fr;}
+    .section-lede{grid-column:1;}
+  }
+
+  hr.rule{
+    border:none;
+    border-top:1px solid var(--line);
+    margin:0;
+  }
+
+  /* ============ PHILOSOPHY ============ */
+  .philosophy{
+    display:grid;
+    grid-template-columns:120px 1fr 1fr;
+    gap:24px;
+  }
+  .philosophy .copy{
+    grid-column:2;
+    max-width:520px;
+    font-size:1.08rem;
+    color:var(--ivory-dim);
+  }
+  .philosophy .copy p + p{margin-top:20px;}
+  .philosophy .stats{
+    grid-column:3;
+    display:flex;
+    flex-direction:column;
+    gap:34px;
+    border-left:1px solid var(--line);
+    padding-left:36px;
+  }
+  .stat .num{
+    font-family:var(--serif);
+    font-size:2.6rem;
+    color:var(--brass-light);
+    line-height:1;
+  }
+  .stat .label{
+    color:var(--ivory-dim);
+    font-size:0.9rem;
+    margin-top:8px;
+  }
+  @media (max-width:900px){
+    .philosophy{grid-template-columns:1fr;}
+    .philosophy .copy,.philosophy .stats{grid-column:1;}
+    .philosophy .stats{
+      border-left:none; padding-left:0;
+      flex-direction:row; flex-wrap:wrap;
+      border-top:1px solid var(--line); padding-top:28px; margin-top:28px;
+    }
+  }
+
+  /* ============ SERVICES (menu style) ============ */
+  .menu-list{
+    display:grid;
+    grid-template-columns:120px 1fr;
+    gap:24px;
+  }
+  .menu-col{grid-column:2; max-width:720px;}
+  .menu-row{
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+    padding:22px 0;
+    border-bottom:1px solid var(--line);
+    transition:padding-left 0.25s ease;
+  }
+  .menu-row:hover{padding-left:8px;}
+  .menu-row:hover .menu-name{color:var(--brass-light);}
+  .menu-row:hover .menu-price{color:var(--brass-light);}
+  .menu-name{
+    font-family:var(--serif);
+    font-size:1.28rem;
+    color:var(--ivory);
+    white-space:nowrap;
+    transition:color 0.25s ease;
+  }
+  .menu-desc{
+    color:var(--ivory-dim);
+    font-size:0.86rem;
+    flex-shrink:0;
+    padding-left:8px;
+  }
+  .leader{
+    flex:1;
+    border-bottom:1px dotted var(--line-strong);
+    transform:translateY(-6px);
+    min-width:24px;
+  }
+  .menu-price{
+    font-family:var(--serif);
+    font-size:1.15rem;
+    color:var(--ivory-dim);
+    white-space:nowrap;
+    transition:color 0.25s ease;
+  }
+  .menu-note{
+    grid-column:2;
+    margin-top:24px;
+    color:var(--ivory-dim);
+    font-size:0.85rem;
+    font-style:italic;
+    max-width:560px;
+  }
+  @media (max-width:700px){
+    .menu-list{grid-template-columns:1fr;}
+    .menu-col,.menu-note{grid-column:1;}
+    .menu-row{flex-wrap:wrap;}
+    .menu-desc{width:100%; padding-left:0; order:3;}
+  }
+
+  /* ============ TEAM ============ */
+  .team-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  .barber-card{
+    background:var(--ink);
+    padding:44px 34px;
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+  }
+  .avatar{
+    width:74px; height:74px;
+    border-radius:50%;
+    border:1px solid var(--brass);
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--serif);
+    font-style:italic;
+    font-size:1.5rem;
+    color:var(--brass-light);
+  }
+  .barber-card h3{
+    font-size:1.4rem;
+    color:var(--ivory);
+  }
+  .barber-role{
+    color:var(--brass-light);
+    font-size:0.84rem;
+    margin-top:4px;
+  }
+  .barber-quote{
+    color:var(--ivory-dim);
+    font-size:0.94rem;
+    font-style:italic;
+    border-left:1px solid var(--line-strong);
+    padding-left:16px;
+    margin-top:auto;
+  }
+  @media (max-width:900px){
+    .team-grid{grid-template-columns:1fr;}
+  }
+
+  /* ============ BARBER SPOTLIGHT ============ */
+  .spotlight-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+  }
+  .spotlight-photo{
+    aspect-ratio:4/3;
+    overflow:hidden;
+    border:1px solid var(--line-strong);
+  }
+  .spotlight-photo img{
+    width:100%; height:100%;
+    object-fit:cover;
+    filter:grayscale(0.25) contrast(1.05);
+    transition:filter 0.5s ease;
+  }
+  .spotlight-photo:hover img{filter:grayscale(0) contrast(1.05);}
+  .spotlight-info h3{
+    font-size:1.9rem;
+    color:var(--ivory);
+    margin-top:20px;
+  }
+  .spotlight-info p{
+    color:var(--ivory-dim);
+    margin-top:18px;
+    max-width:460px;
+    font-size:1rem;
+  }
+  @media (max-width:900px){
+    .spotlight-grid{grid-template-columns:1fr; gap:32px;}
+  }
+
+  /* ============ PROCESS ============ */
+  .process-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:36px;
+  }
+  .process-step .eyebrow-index{
+    display:block;
+    font-size:1rem;
+    margin-bottom:18px;
+  }
+  .process-step h4{
+    font-size:1.2rem;
+    color:var(--ivory);
+    margin-bottom:10px;
+  }
+  .process-step p{
+    color:var(--ivory-dim);
+    font-size:0.92rem;
+  }
+  @media (max-width:900px){
+    .process-grid{grid-template-columns:1fr 1fr; row-gap:44px;}
+  }
+  @media (max-width:560px){
+    .process-grid{grid-template-columns:1fr;}
+  }
+
+  /* ============ TESTIMONIALS ============ */
+  .testi-wrap{
+    background:var(--wine);
+    padding:100px 0;
+    position:relative;
+  }
+  .testi-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:48px;
+  }
+  .testi blockquote{
+    font-family:var(--serif);
+    font-size:1.2rem;
+    line-height:1.5;
+    color:var(--ivory);
+  }
+  .testi cite{
+    display:block;
+    margin-top:20px;
+    font-style:normal;
+    font-size:0.85rem;
+    color:rgba(236,230,217,0.65);
+  }
+  @media (max-width:900px){
+    .testi-grid{grid-template-columns:1fr; gap:40px;}
+  }
+
+  /* ============ LOCATION ============ */
+  .location-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+  }
+  .location-info dl{
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:14px 24px;
+    margin-top:32px;
+  }
+  .location-info dt{
+    color:var(--brass-light);
+    font-size:0.85rem;
+  }
+  .location-info dd{
+    color:var(--ivory-dim);
+    font-size:0.95rem;
+  }
+  .map-art{
+    border:1px solid var(--line-strong);
+    aspect-ratio:1/1;
+    position:relative;
+    overflow:hidden;
+  }
+  .map-art svg{width:100%; height:100%;}
+  @media (max-width:900px){
+    .location-grid{grid-template-columns:1fr;}
+  }
+
+  /* ============ CTA BAND ============ */
+  .cta-band{
+    padding:120px 0;
+    text-align:center;
+  }
+  .cta-band h2{
+    font-size:clamp(2.2rem,5vw,3.6rem);
+    max-width:760px;
+    margin:0 auto;
+  }
+  .cta-band .hero-cta{
+    justify-content:center;
+    margin-top:36px;
+    opacity:1;
+    animation:none;
+  }
+
+  /* ============ FOOTER ============ */
+  footer{
+    border-top:1px solid var(--line);
+    padding:70px 0 34px;
+  }
+  .footer-top{
+    display:grid;
+    grid-template-columns:1.2fr 1fr 1fr 1fr;
+    gap:40px;
+    padding-bottom:50px;
+  }
+  .footer-top h5{
+    font-family:var(--sans);
+    font-size:0.82rem;
+    color:var(--brass-light);
+    margin-bottom:16px;
+    letter-spacing:0.04em;
+  }
+  .footer-top a, .footer-top li, .footer-top span{
+    color:var(--ivory-dim);
+    font-size:0.9rem;
+    display:block;
+    margin-bottom:10px;
+  }
+  .footer-top a:hover{color:var(--ivory);}
+  .footer-brand p{
+    color:var(--ivory-dim);
+    font-size:0.9rem;
+    max-width:280px;
+    margin-top:14px;
+  }
+  .footer-bottom{
+    display:flex;
+    justify-content:space-between;
+    padding-top:28px;
+    border-top:1px solid var(--line);
+    color:var(--ivory-dim);
+    font-size:0.8rem;
+    flex-wrap:wrap;
+    gap:12px;
+  }
+  @media (max-width:800px){
+    .footer-top{grid-template-columns:1fr 1fr;}
+  }
+
+  ::selection{background:var(--brass); color:var(--ink);}
+  :focus-visible{outline:1px solid var(--brass-light); outline-offset:3px;}
+</style>
+</head>
+<body>
+
+<header id="site-header">
+  <div class="wrap">
+    <a href="#top" class="logo">
+      <span class="mark">★</span>
+      <span>
+        Five Star Barbers
+        <span class="city">Katowice</span>
+      </span>
+    </a>
+    <nav class="primary-nav">
+      <a href="#uslugi">Usługi</a>
+      <a href="#barber">Barber</a>
+      <a href="#proces">Proces</a>
+      <a href="#lokalizacja">Lokalizacja</a>
+      <a href="https://booksy.com/pl-pl/21582_five-star-barbers_barber-shop_11597_katowice" target="_blank" rel="noopener" class="icon-call" aria-label="Zadzwoń / umów wizytę u barbera" title="Skontaktuj się z barberem">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="12"/><path d="M15.5 13.5l-1.6-.7a1 1 0 00-1.1.2l-.7.7a7 7 0 01-3-3l.7-.7a1 1 0 00.2-1.1L9.3 6.3A1 1 0 008.4 6H7a1 1 0 00-1 1.1C6.4 12.6 11.4 17.6 16.9 18a1 1 0 001.1-1v-1.4a1 1 0 00-.7-.9z" fill="none" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="https://booksy.com/pl-pl/21582_five-star-barbers_barber-shop_11597_katowice" target="_blank" rel="noopener" class="btn btn-primary">Rezerwacja</a>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="Otwórz menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="close-btn" id="closeMenu" aria-label="Zamknij menu">✕</button>
+  <a href="#uslugi">Usługi</a>
+  <a href="#barber">Barber</a>
+  <a href="#proces">Proces</a>
+  <a href="#lokalizacja">Lokalizacja</a>
+  <a href="https://booksy.com/pl-pl/21582_five-star-barbers_barber-shop_11597_katowice" target="_blank" rel="noopener">Rezerwacja</a>
+</div>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>
+          <span class="line"><span>Pięć gwiazdek.</span></span>
+          <span class="line"><span>Jeden <em>fotel</em>.</span></span>
+        </h1>
+        <p class="hero-sub">Five Star Barbers to jeden barber i jeden fotel przy ulicy Zadole w Katowicach — oraz ponad 1800 opinii z oceną 5.0. Bez przypadku, bez pośpiechu.</p>
+        <div class="hero-cta">
+          <a href="https://booksy.com/pl-pl/21582_five-star-barbers_barber-shop_11597_katowice" target="_blank" rel="noopener" class="btn btn-primary">Umów wizytę na Booksy</a>
+          <a href="#uslugi" class="btn btn-outline">Zobacz usługi</a>
+        </div>
+      </div>
+      <div class="hero-aside">
+        <svg class="hero-razor" viewBox="0 0 200 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 45 L120 45" stroke-width="1"/>
+          <path d="M120 30 L165 30 L192 45 L165 60 L120 60 Z" stroke-width="1" stroke-linejoin="round"/>
+          <path d="M8 38 L8 52" stroke-width="1"/>
+          <circle cx="30" cy="45" r="3" stroke-width="1"/>
+        </svg>
+        <div class="hero-meta">
+          ul. Zadole 15, Katowice<br>
+          <strong>Dziś</strong> 10:00–20:00 · grafik na Booksy
+        </div>
+        <a href="https://booksy.com/pl-pl/21582_five-star-barbers_barber-shop_11597_katowice" target="_blank" rel="noopener" class="btn-phone" style="margin-top:16px;">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="12"/><path d="M15.5 13.5l-1.6-.7a1 1 0 00-1.1.2l-.7.7a7 7 0 01-3-3l.7-.7a1 1 0 00.2-1.1L9.3 6.3A1 1 0 008.4 6H7a1 1 0 00-1 1.1C6.4 12.6 11.4 17.6 16.9 18a1 1 0 001.1-1v-1.4a1 1 0 00-.7-.9z" fill="none" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Skontaktuj się z barberem
+        </a>
+      </div>
+    </div>
+    <div class="scroll-cue"><span class="stick"></span>przewiń</div>
+  </section>
+
+  <!-- PHILOSOPHY -->
+  <section id="filozofia">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow-index">01</span>
+        <h2>Nazwa zobowiązuje.</h2>
+      </div>
+      <div class="philosophy">
+        <div class="copy">
+          <p>Five Star Barbers działa na Zadolu w Katowicach od 2021 roku, w formacie, który dziś jest rzadkością: jeden barber, jeden fotel, jeden klient na raz. Żadnych równoległych wizyt, żadnego pośpiechu między krzesłami.</p>
+          <p>Ten model ma swoją cenę — grafik wypełnia się szybko — ale też swój efekt: niemal 1900 opinii i wciąż ocena 5.0. Nie z automatu, tylko dlatego, że każda wizyta przebiega z tą samą dokładnością.</p>
+        </div>
+        <div class="stats">
+          <div class="stat">
+            <div class="num">5.0</div>
+            <div class="label">średnia ocena z ponad 1800 opinii</div>
+          </div>
+          <div class="stat">
+            <div class="num">1</div>
+            <div class="label">barber, jeden fotel, pełna uwaga</div>
+          </div>
+          <div class="stat">
+            <div class="num">2021</div>
+            <div class="label">rok, w którym Marcin otworzył Five Star Barbers</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- SERVICES -->
+  <section id="uslugi" class="alt">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow-index">02</span>
+        <h2>Usługi</h2>
+      </div>
+      <div class="menu-list">
+        <div class="menu-col">
+
+          <div class="menu-row">
+            <span class="menu-name">Strzyżenie włosów</span>
+            <span class="menu-desc">Haircut · 30 min</span>
+            <span class="leader"></span>
+            <span class="menu-price">100 zł</span>
+          </div>
+
+          <div class="menu-row">
+            <span class="menu-name">Combo — strzyżenie i broda</span>
+            <span class="menu-desc">Haircut &amp; Beard · 1 godz.</span>
+            <span class="leader"></span>
+            <span class="menu-price">150 zł</span>
+          </div>
+
+        </div>
+        <p class="menu-note">Krótka, celowa lista — dwie usługi wykonywane z pełną uwagą zamiast rozbudowanego cennika. Aktualne ceny i wolne terminy zawsze widoczne na Booksy.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BARBER SPOTLIGHT -->
+  <section id="barber">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow-index">03</span>
+        <h2>Barber</h2>
+        <p class="section-lede">Jedna osoba, jeden fotel, cała uwaga skupiona na jednej głowie na raz.</p>
+      </div>
+      <div class="spotlight-grid">
+        <div class="spotlight-photo">
+          <img src="https://d375139ucebi94.cloudfront.net/region2/pl/21582/biz_photo/3bf85802d1dc4a2db3be8108d846b5-five-star-barbers-katowice-biz-photo-eb4f378cdab445608508794d24e4c2-booksy.jpeg" alt="Wnętrze Five Star Barbers, ul. Zadole 15, Katowice" loading="lazy">
+        </div>
+        <div class="spotlight-info">
+          <div class="avatar" style="width:64px;height:64px;font-size:1.3rem;">MB</div>
+          <h3>Marcin Binduga</h3>
+          <div class="barber-role">Barber &amp; Założyciel</div>
+          <p>Prowadzi Five Star Barbers od 2021 roku i osobiście obsługuje każdego klienta — bez zespołu asystentów, bez rotacji na fotelu. Efekt: blisko 1900 opinii, z których prawie wszystkie to najwyższa nota, i grafik, który warto rezerwować z wyprzedzeniem.</p>
+          <a href="https://booksy.com/pl-pl/21582_five-star-barbers_barber-shop_11597_katowice" target="_blank" rel="noopener" class="btn btn-outline" style="margin-top:8px;">Zarezerwuj termin u Marcina</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- PROCESS -->
+  <section id="proces" class="alt">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow-index">04</span>
+        <h2>Przebieg wizyty</h2>
+      </div>
+      <div class="process-grid">
+        <div class="process-step">
+          <span class="eyebrow-index">01</span>
+          <h4>Konsultacja</h4>
+          <p>Rozmawiamy o oczekiwaniach, kształcie twarzy i stylu, jaki chcesz nosić na co dzień.</p>
+        </div>
+        <div class="process-step">
+          <span class="eyebrow-index">02</span>
+          <h4>Strzyżenie</h4>
+          <p>Praca nożyczkami i maszynką, warstwa po warstwie, z uwagą na strukturę włosa.</p>
+        </div>
+        <div class="process-step">
+          <span class="eyebrow-index">03</span>
+          <h4>Broda (opcjonalnie)</h4>
+          <p>W wariancie Combo — modelowanie i wyrównanie konturu brody tuż po strzyżeniu.</p>
+        </div>
+        <div class="process-step">
+          <span class="eyebrow-index">04</span>
+          <h4>Stylizacja</h4>
+          <p>Finalne ułożenie, dobór kosmetyku i wskazówki, jak utrzymać efekt do następnej wizyty.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <div class="testi-wrap">
+    <div class="wrap testi-grid">
+      <div class="testi">
+        <blockquote>Zawsze elegancko, zawsze na tym samym, wysokim poziomie.</blockquote>
+        <cite>— Filip, opinia z Booksy</cite>
+      </div>
+      <div class="testi">
+        <blockquote>Strzyżenie tak dokładne, że nie ma się do czego przyczepić.</blockquote>
+        <cite>— Michał, opinia z Booksy</cite>
+      </div>
+      <div class="testi">
+        <blockquote>Dobra atmosfera i cięcie, na które chce się wracać.</blockquote>
+        <cite>— Paweł, opinia z Booksy</cite>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOCATION -->
+  <section id="lokalizacja">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow-index">05</span>
+        <h2>Lokalizacja</h2>
+      </div>
+      <div class="location-grid">
+        <div class="location-info">
+          <p style="color:var(--ivory-dim); max-width:420px;">Salon znajdziesz na Zadolu w Katowicach. Ponieważ na fotelu jest tylko jeden barber, warto sprawdzić wolne terminy i rezerwować z wyprzedzeniem przez Booksy.</p>
+          <dl>
+            <dt>Adres</dt>
+            <dd>ul. Zadole 15, 40-719 Katowice</dd>
+            <dt>Dziś</dt>
+            <dd>10:00–20:00</dd>
+            <dt>Pełny grafik</dt>
+            <dd>sprawdź i zarezerwuj na Booksy</dd>
+            <dt>Ocena</dt>
+            <dd>5.0 · ponad 1800 opinii</dd>
+          </dl>
+          <a href="https://booksy.com/pl-pl/21582_five-star-barbers_barber-shop_11597_katowice" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:28px;">Sprawdź wolne terminy</a>
+        </div>
+        <div class="map-art">
+          <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="400" fill="#151210"/>
+            <g stroke="rgba(236,230,217,0.16)" stroke-width="1">
+              <line x1="0" y1="80" x2="400" y2="80"/>
+              <line x1="0" y1="180" x2="400" y2="150"/>
+              <line x1="0" y1="300" x2="400" y2="280"/>
+              <line x1="90" y1="0" x2="60" y2="400"/>
+              <line x1="230" y1="0" x2="260" y2="400"/>
+              <line x1="330" y1="0" x2="360" y2="400"/>
+            </g>
+            <circle cx="200" cy="190" r="7" fill="#a6813f"/>
+            <circle cx="200" cy="190" r="16" fill="none" stroke="#a6813f" stroke-width="1"/>
+            <text x="215" y="185" fill="#cfae6f" font-family="Instrument Sans, sans-serif" font-size="11">Five Star Barbers</text>
+            <text x="215" y="200" fill="rgba(236,230,217,0.6)" font-family="Instrument Sans, sans-serif" font-size="10">ul. Zadole 15</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-band" id="kontakt">
+    <div class="wrap">
+      <h2>Zarezerwuj miejsce w fotelu, zanim zrobi to ktoś inny.</h2>
+      <div class="hero-cta">
+        <a href="https://booksy.com/pl-pl/21582_five-star-barbers_barber-shop_11597_katowice" target="_blank" rel="noopener" class="btn-phone">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="12"/><path d="M15.5 13.5l-1.6-.7a1 1 0 00-1.1.2l-.7.7a7 7 0 01-3-3l.7-.7a1 1 0 00.2-1.1L9.3 6.3A1 1 0 008.4 6H7a1 1 0 00-1 1.1C6.4 12.6 11.4 17.6 16.9 18a1 1 0 001.1-1v-1.4a1 1 0 00-.7-.9z" fill="none" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Skontaktuj się z barberem
+        </a>
+        <a href="https://booksy.com/pl-pl/21582_five-star-barbers_barber-shop_11597_katowice" target="_blank" rel="noopener" class="btn btn-primary">Zarezerwuj na Booksy</a>
+        <a href="https://www.google.com/maps/search/?api=1&query=Five+Star+Barbers+Zadole+15+Katowice" target="_blank" rel="noopener" class="btn btn-outline">Zobacz na mapie</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#top" class="logo">
+          <span class="mark">★</span>
+          <span>Five Star Barbers</span>
+        </a>
+        <p>Jeden barber, jeden fotel na ulicy Zadole w Katowicach. Bez pośpiechu, bez rotacji, z oceną 5.0.</p>
+      </div>
+      <div>
+        <h5>Nawigacja</h5>
+        <a href="#uslugi">Usługi</a>
+        <a href="#barber">Barber</a>
+        <a href="#proces">Proces</a>
+        <a href="#lokalizacja">Lokalizacja</a>
+      </div>
+      <div>
+        <h5>Kontakt</h5>
+        <a href="https://booksy.com/pl-pl/21582_five-star-barbers_barber-shop_11597_katowice" target="_blank" rel="noopener" class="btn-phone" style="margin-bottom:14px;">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="12"/><path d="M15.5 13.5l-1.6-.7a1 1 0 00-1.1.2l-.7.7a7 7 0 01-3-3l.7-.7a1 1 0 00.2-1.1L9.3 6.3A1 1 0 008.4 6H7a1 1 0 00-1 1.1C6.4 12.6 11.4 17.6 16.9 18a1 1 0 001.1-1v-1.4a1 1 0 00-.7-.9z" fill="none" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Skontaktuj się
+        </a>
+        <span>ul. Zadole 15, 40-719 Katowice</span>
+      </div>
+      <div>
+        <h5>Godziny</h5>
+        <span>Dziś: 10:00–20:00</span>
+        <span>Pełny grafik na Booksy</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Five Star Barbers Sp. z o.o., Katowice</span>
+      <span>Zdjęcia i opinie: Booksy</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const header = document.getElementById('site-header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const closeMenu = document.getElementById('closeMenu');
+  hamburger.addEventListener('click', () => mobileMenu.classList.add('open'));
+  closeMenu.addEventListener('click', () => mobileMenu.classList.remove('open'));
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+</script>
+
+</body>
+</html>
